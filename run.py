@@ -148,5 +148,24 @@ def main():
     update_worksheet(stock_data, "stock")
 
 print("Welcome to Love Sandwiches Data Automation")
-main()
+#main()
 
+def get_stock_values(data):
+    """
+    Retrieve stock values from the specified sheet and create a dictionary.
+    """
+    worksheet = SHEET.worksheet(data)
+    headings = worksheet.row_values(1)
+    data_values = worksheet.get_all_values()[1:]
+
+    stock_dict = {}
+
+    for row in data_values:
+        stock_dict = dict(zip(headings, row))
+
+    return stock_dict
+
+
+stock_data = "stock" 
+stock_values = get_stock_values(stock_data)
+print(f"Make the following number of sanwiches for the next market:\n{stock_values}")
