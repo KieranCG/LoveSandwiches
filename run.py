@@ -148,7 +148,7 @@ def main():
     update_worksheet(stock_data, "stock")
 
 print("Welcome to Love Sandwiches Data Automation")
-#main()
+main()
 
 def get_stock_values(data):
     """
